@@ -104,6 +104,8 @@ function App() {
           width: orangeMaxHP - Math.max(currentState["orangeHP"], 0),
           height: 20
         }}></div>
+        HP: {currentState["orangeHP"]}/{orangeMaxHP}, 
+        Damage: {orangeDmg}
         <br/>
         <div style={{
           display: "inline-block",
@@ -117,6 +119,8 @@ function App() {
           width: cyanMaxHP - Math.max(currentState["cyanHP"], 0),
           height: 20
         }}></div>
+        HP: {currentState["cyanHP"]} / {cyanMaxHP}, 
+        Damage: {cyanDmg}
       </div>
     </>
   )
