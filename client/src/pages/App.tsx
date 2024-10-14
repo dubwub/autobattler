@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Button } from '@mantine/core';
 
 function App() {
@@ -46,6 +46,12 @@ function App() {
   const [currentFrame, setCurrentFrame] = useState(0)
   let currentState = frames[currentFrame]
 
+  const [ playing, setPlaying ] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => currentFrame < frames.length - 1 && playing && setCurrentFrame(currentFrame+1), 1e2)
+    return () => clearTimeout(timer)
+   }, [currentFrame, playing])
+
   return (
     <>
       <Button
@@ -61,6 +67,8 @@ function App() {
         onClick={() => setCurrentFrame(currentFrame+1)}
         disabled={currentFrame === frames.length - 1}
       >fwd</Button>
+      <Button onClick={() => setPlaying(false)}>pause</Button>
+      <Button onClick={() => setPlaying(true)}>resume</Button>
       <br/>
 
       <div style={{position: 'relative', width: FDlength*10, height: 20}}>
