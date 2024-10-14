@@ -9,29 +9,35 @@ function App() {
   let orangeX = 0;
   let cyanX = FDlength;
   
-  let orangeHP = 100
-  let cyanHP = 100
-  let orangeDmg = 9
-  let cyanDmg = 11
+  const [orangeMaxHP, setOrangeMaxHP] = useState(Math.random() * 200)
+  const [cyanMaxHP, setCyanMaxHP] = useState(Math.random() * 200)
+  const [orangeDmg, setOrangeDmg] = useState(Math.random() * 20)
+  const [cyanDmg, setCyanDmg] = useState(Math.random() * 20)
 
   let _range = 20
+
+  let _orangeHP = orangeMaxHP;
+  let _cyanHP = cyanMaxHP;
 
   function frameState() {
     return {
       orangeX: orangeX,
       cyanX: cyanX,
-      orangeHP: orangeHP,
-      cyanHP: cyanHP,
+      orangeMaxHP: orangeMaxHP,
+      cyanMaxHP: cyanMaxHP,
+      orangeHP: _orangeHP,
+      cyanHP: _cyanHP,
       orangeDmg: orangeDmg,
       cyanDmg: cyanDmg,
     }
   }
+
   frames.push(frameState())
-  while (orangeHP > 0 && cyanHP > 0 && frames.length < 3000) {
+  while (_orangeHP > 0 && _cyanHP > 0 && frames.length < 3000) {
     // if attackable, attack, otherwise move
     if (Math.abs(orangeX - cyanX) <= _range) {
-      orangeHP -= cyanDmg;
-      cyanHP -= orangeDmg;
+      _orangeHP -= cyanDmg;
+      _cyanHP -= orangeDmg;
     } else {
       orangeX += 5;
       cyanX -= 5;
@@ -40,8 +46,6 @@ function App() {
     frames.push(frameState())
 
   }
-  console.log(frames);
-
 
   const [currentFrame, setCurrentFrame] = useState(0)
   let currentState = frames[currentFrame]
@@ -97,7 +101,7 @@ function App() {
         <div style={{
           display: "inline-block",
           background: 'red',
-          width: 100 - Math.max(currentState["orangeHP"], 0),
+          width: orangeMaxHP - Math.max(currentState["orangeHP"], 0),
           height: 20
         }}></div>
         <br/>
@@ -110,7 +114,7 @@ function App() {
         <div style={{
           display: "inline-block",
           background: 'red',
-          width: 100 - Math.max(currentState["cyanHP"], 0),
+          width: cyanMaxHP - Math.max(currentState["cyanHP"], 0),
           height: 20
         }}></div>
       </div>
