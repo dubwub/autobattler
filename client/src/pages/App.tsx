@@ -13,6 +13,8 @@ function App() {
   const [cyanMaxHP, setCyanMaxHP] = useState(Math.random() * 200)
   const [orangeDmg, setOrangeDmg] = useState(Math.random() * 20)
   const [cyanDmg, setCyanDmg] = useState(Math.random() * 20)
+  const [orangeRange, setOrangeRange] = useState(Math.random() * 10 + 10)
+  const [cyanRange, setCyanRange] = useState(Math.random() * 10 + 10)
 
   let _range = 20
 
@@ -34,17 +36,21 @@ function App() {
 
   frames.push(frameState())
   while (_orangeHP > 0 && _cyanHP > 0 && frames.length < 3000) {
-    // if attackable, attack, otherwise move
-    if (Math.abs(orangeX - cyanX) <= _range) {
-      _orangeHP -= cyanDmg;
+    // orange AI
+    if (Math.abs(orangeX - cyanX) <= orangeRange) {
       _cyanHP -= orangeDmg;
     } else {
       orangeX += 5;
+    }
+
+    // cyan AI
+    if (Math.abs(orangeX - cyanX) <= cyanRange) {
+      _orangeHP -= cyanDmg;
+    } else {
       cyanX -= 5;
     }
 
     frames.push(frameState())
-
   }
 
   const [currentFrame, setCurrentFrame] = useState(0)
@@ -104,8 +110,9 @@ function App() {
           width: orangeMaxHP - Math.max(currentState["orangeHP"], 0),
           height: 20
         }}></div>
-        HP: {currentState["orangeHP"]}/{orangeMaxHP}, 
-        Damage: {orangeDmg}
+        HP: {currentState["orangeHP"].toPrecision(5)}/{orangeMaxHP.toPrecision(5)}, 
+        Damage: {orangeDmg.toPrecision(5)},
+        Range: {orangeRange.toPrecision(5)}
         <br/>
         <div style={{
           display: "inline-block",
@@ -119,8 +126,9 @@ function App() {
           width: cyanMaxHP - Math.max(currentState["cyanHP"], 0),
           height: 20
         }}></div>
-        HP: {currentState["cyanHP"]} / {cyanMaxHP}, 
-        Damage: {cyanDmg}
+        HP: {currentState["cyanHP"].toPrecision(5)} / {cyanMaxHP.toPrecision(5)}, 
+        Damage: {cyanDmg.toPrecision(5)},
+        Range: {cyanRange.toPrecision(5)}
       </div>
     </>
   )
