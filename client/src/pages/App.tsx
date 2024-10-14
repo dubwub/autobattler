@@ -40,6 +40,7 @@ function App() {
     frames.push(frameState())
 
   }
+  console.log(frames);
 
 
   const [currentFrame, setCurrentFrame] = useState(0)
@@ -62,20 +63,47 @@ function App() {
       >fwd</Button>
       <br/>
 
-      <div style={{position: 'relative', width: FDlength}}>
+      <div style={{position: 'relative', width: FDlength*10, height: 20}}>
         <div style={{ 
+          position: "absolute",
           background: 'orange',
-          width: 20,
-          height: 20,
-          left: currentState[orangeX],
-          position: "absolute"
+          width: 10,
+          height: 10,
+          left: currentState["orangeX"] + "px",
         }}></div>
         <div style={{ 
           background: 'cyan',
-          width: 20,
-          height: 20,
-          left: currentState[cyanX],
+          width: 10,
+          height: 10,
+          left: currentState["cyanX"] + "px",
           position: "absolute"
+        }}></div>
+      </div>
+      <div>
+        <div style={{
+          display: "inline-block",
+          background: 'green',
+          width: currentState["orangeHP"],
+          height: 20,
+        }}></div>
+        <div style={{
+          display: "inline-block",
+          background: 'red',
+          width: 100 - Math.max(currentState["orangeHP"], 0),
+          height: 20
+        }}></div>
+        <br/>
+        <div style={{
+          display: "inline-block",
+          background: 'green',
+          width: currentState["cyanHP"],
+          height: 20,
+        }}></div>
+        <div style={{
+          display: "inline-block",
+          background: 'red',
+          width: 100 - Math.max(currentState["cyanHP"], 0),
+          height: 20
         }}></div>
       </div>
     </>
