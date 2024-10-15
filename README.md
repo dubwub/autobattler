@@ -1,23 +1,4 @@
-<h1 align="center">⚡ Quick Start Project with Vite.js + MERN Stack 🌱</h1> 
-
-<p align="center">
-  <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white" alt="vite.js">
-  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="react">
-  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript">
-  <img src="https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white" alt="sass">
-  <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="bootsrap">
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white" alt="node.js">
-  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="express.js">
-  <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="mongodb">
-</p>
-<br/>
-<p align="center">
-   <a href="/README.md"><img src="https://img.shields.io/badge/README-es-red" alt="readme es"></a>
-   <a href="/README.fr.md"><img src="https://img.shields.io/badge/README-fr-blue" alt="readme fr"></a>
-</p>
-
+<h1 align="center">Autobattler v0</h1> 
 
 ## Table of Contents
 
@@ -164,15 +145,4 @@ yarn run dev
 ## 🔑 License
 
 [MIT](LICENSE).
-
-## 💡 Contribution
-
-I am open to community contributions! If you want to contribute to this project, feel free to create a Pull Request to propose your changes. I appreciate all contributions and will do my best to review them as soon as possible. Thank you for contributing to this project!
-
-## 💖 Support the project
-
-If you find this project helpful or appreciate the work I've done, you can support me by buying me a coffee ☕️ via Ko-fi. Your support encourages me to continue improving and developing this project for the community.
-
-[![Buy us a coffee](https://img.shields.io/badge/Support%20us%20on-Ko--fi-FF5E5B?style=flat-square&logo=kofi&logoColor=white)](https://ko-fi.com/toxdev)
-
 
