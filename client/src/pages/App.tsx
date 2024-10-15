@@ -58,6 +58,7 @@ function App() {
 
   const [ playing, setPlaying ] = useState(false)
   useEffect(() => {
+    if (currentFrame === frames.length - 1) setPlaying(false);
     const timer = setTimeout(() => currentFrame < frames.length - 1 && playing && setCurrentFrame(currentFrame+1), 1e2)
     return () => clearTimeout(timer)
    }, [currentFrame, playing])
@@ -81,23 +82,23 @@ function App() {
       <Button onClick={() => setPlaying(true)}>resume</Button>
       <br/>
 
-      <div style={{position: 'relative', width: FDlength*10, height: 20}}>
+      <div style={{position: 'relative', width: FDlength*20, height: 20}}>
         <div style={{ 
           position: "absolute",
           background: 'orange',
-          width: 10,
-          height: 10,
-          left: currentState["orangeX"] + "px",
+          width: 40,
+          height: 40,
+          left: currentState["orangeX"]*20 + "px",
         }}></div>
         <div style={{ 
           background: 'cyan',
-          width: 10,
-          height: 10,
-          left: currentState["cyanX"] + "px",
+          width: 40,
+          height: 40,
+          left: currentState["cyanX"]*20 + "px",
           position: "absolute"
         }}></div>
       </div>
-      <div>
+      <div style={{marginTop: '40px'}}>
         <div style={{
           display: "inline-block",
           background: 'green',
